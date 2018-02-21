@@ -9,12 +9,7 @@ node_js:
   - '8'
   - '6'
 services:
-  - docker
-os:
-  - linux
-before_script:
-  - docker run -d -p 5984:5984 --name couchdb couchdb
-  - while [ '200' != $(curl -s -o /dev/null -w %{http_code} http://127.0.0.1:5984) ]; do sleep 1; done
+  - couchdb
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
 branches:
