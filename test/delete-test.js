@@ -23,9 +23,9 @@ test('delete a document', t => {
         
         deleteDoc(url + '/' + dbname, doc._id, (error, response) => {
           t.error(error, 'no error occured')
-          t.ok(response.ok, 'response is ok')
-          t.equal(response.id, doc._id, 'response has correct id')
-          t.ok('rev' in response, 'response has rev')
+          t.ok(response[0].ok, 'response is ok')
+          t.equal(response[0].id, doc._id, 'response has correct id')
+          t.ok('rev' in response[0], 'response has rev')
           
           db.head(doc._id, (error) => {
             t.ok(error, 'no doc found')

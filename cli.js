@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const deleteDoc = require('./')
+const deleteDocs = require('./')
 
 const args = process.argv.slice(2)
 
@@ -9,10 +9,10 @@ if (args.length < 2) {
   process.exit()
 }
 
-const url = args[0]
-const id = args[1]
+const url = args.shift()
+const ids = args
 
-deleteDoc(url, id, (error, response) => {
+deleteDocs(url, ids, (error, response) => {
   if (error) return console.error(error)
 
   console.log(JSON.stringify(response, null, '  '))

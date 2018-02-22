@@ -4,11 +4,11 @@ Delete CouchDB document
 ## API
 
 ```js
-deleteDoc(url, id[, options], callback)
+deleteDoc(url, ids[, options], callback)
 ```
 
 * `url` - CouchDB database URL
-* `id` -  Document ID
+* `ids` -  Document IDs. Can be either a single id or an array of ids. Must not be empty.
 * `callback` - called when done with a `response` object describing the status of all operations.
 
 ### Example
